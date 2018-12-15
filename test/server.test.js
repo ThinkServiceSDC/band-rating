@@ -2,6 +2,10 @@ import request from 'supertest';
 import httpStatus from 'http-status';
 import server from '../server/server'
 
+after(() => {
+    server.stop();
+});
+
 describe('basic controller test', () => {
     it('should respond with 200', (done) => {
         request(server).get('/HelloWorld')
