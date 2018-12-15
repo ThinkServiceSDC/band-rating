@@ -6,6 +6,6 @@ describe('basic controller test', () => {
     it('should respond with 200', (done) => {
         request(server).get('/HelloWorld')
             .expect(httpStatus.OK)
-            .expect({test: 'test'}, done);
+            .expect({test: 'testing test'}, done);
     });
 });
