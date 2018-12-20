@@ -5,10 +5,11 @@
   "scripts": {
     "build": "rimraf dist/ && babel server -d dist",
     "start": "nodemon --watch server/ --exec babel-node -- server/server.js",
-    "test": "mocha --recursive --require @babel/register",
+    "test": "mocha --recursive --require @babel/register --require @babel/polyfill",
     "serve": "yarn build && node dist/server.js"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
