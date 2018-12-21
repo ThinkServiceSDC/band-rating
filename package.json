@@ -1,12 +1,12 @@
 {
   "name": "band-evaluation",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "webpack --mode development && babel src/server/ -d build",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon --watch src/ --exec babel-node -- src/server/server.js",
-    "serve": "yarn build && node src/server/index.js",
+    "serve": "yarn build && node build/server.js",
     "start": "concurrently \"yarn server\" \"yarn client\"",
     "test": "concurrently \"mocha --recursive --require @babel/register --require @babel/polyfill src/test\" \"jest src/client\""
   },
