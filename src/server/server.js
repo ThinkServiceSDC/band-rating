@@ -11,6 +11,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(express.static('dist'));
 
 app.use('/', indexRouter);
 
@@ -30,8 +31,8 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-const server = app.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
+const server = app.listen(8080, () => {
+    console.log('Example app listening on port 8080!');
 });
 
 app.stop = () => {
