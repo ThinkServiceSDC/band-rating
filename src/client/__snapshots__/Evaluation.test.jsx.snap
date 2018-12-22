@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Evaluation should render correctly 1`] = `
+<div
+  className="evaluation-form"
+>
+  <form>
+    <div
+      className="evaluation-container"
+    >
+      <input
+        className="band-insert-field"
+        name="bandName"
+        type="text"
+      />
+      <div>
+        <input
+          id="good"
+          name="rating"
+          type="radio"
+        />
+        <label
+          className="radio-button-label"
+        >
+          Good
+        </label>
+        <input
+          id="medium"
+          name="rating"
+          type="radio"
+        />
+        <label
+          className="radio-button-label"
+        >
+          Medium
+        </label>
+        <input
+          id="bad"
+          name="rating"
+          type="radio"
+        />
+        <label
+          className="radio-button-label"
+        >
+          Bad
+        </label>
+        <input
+          id="special"
+          name="rating"
+          type="radio"
+        />
+        <label
+          className="radio-button-label"
+        >
+          Special
+        </label>
+        <input
+          id="metalBattle"
+          name="rating"
+          type="radio"
+        />
+        <label
+          className="radio-button-label"
+        >
+          Metal Battle
+        </label>
+      </div>
+      <input
+        className="submit"
+        type="submit"
+        value="Evaluate"
+      />
+    </div>
+  </form>
+</div>
+`;
