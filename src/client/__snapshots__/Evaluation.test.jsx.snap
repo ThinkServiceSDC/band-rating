@@ -13,57 +13,29 @@ exports[`Evaluation should render correctly 1`] = `
         name="bandName"
         type="text"
       />
-      <div>
-        <input
-          id="good"
-          name="rating"
-          type="radio"
+      <div
+        className="voting-area"
+      >
+        <RadioButton
+          groupName="rating"
+          text="Good"
         />
-        <label
-          className="radio-button-label"
-        >
-          Good
-        </label>
-        <input
-          id="medium"
-          name="rating"
-          type="radio"
+        <RadioButton
+          groupName="rating"
+          text="Medium"
         />
-        <label
-          className="radio-button-label"
-        >
-          Medium
-        </label>
-        <input
-          id="bad"
-          name="rating"
-          type="radio"
+        <RadioButton
+          groupName="rating"
+          text="Bad"
         />
-        <label
-          className="radio-button-label"
-        >
-          Bad
-        </label>
-        <input
-          id="special"
-          name="rating"
-          type="radio"
+        <RadioButton
+          groupName="rating"
+          text="Special"
         />
-        <label
-          className="radio-button-label"
-        >
-          Special
-        </label>
-        <input
-          id="metalBattle"
-          name="rating"
-          type="radio"
+        <RadioButton
+          groupName="rating"
+          text="Metal Battle"
         />
-        <label
-          className="radio-button-label"
-        >
-          Metal Battle
-        </label>
       </div>
       <input
         className="submit"

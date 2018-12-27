@@ -1,5 +1,6 @@
 import React from 'react';
 import './evaluation.css';
+import {RadioButton} from "./RadioButton";
 
 export const Evaluation = () => {
     return (
@@ -7,22 +8,16 @@ export const Evaluation = () => {
             <form>
                 <div className='evaluation-container'>
                     <input className='band-insert-field' type='text' name='bandName'/>
-                    <div>
-                        <input type='radio' id='good' name='rating'/>
-                        <label className='radio-button-label'>Good</label>
-                        <input type='radio' id='medium' name='rating'/>
-                        <label className='radio-button-label'>Medium</label>
-                        <input type='radio' id='bad' name='rating'/>
-                        <label className='radio-button-label'>Bad</label>
-                        <input type='radio' id='special' name='rating'/>
-                        <label className='radio-button-label'>Special</label>
-                        <input type='radio' id='metalBattle' name='rating'/>
-                        <label className='radio-button-label'>Metal Battle</label>
+                    <div className='voting-area'>
+                        <RadioButton text='Good' groupName='rating'/>
+                        <RadioButton text='Medium' groupName='rating'/>
+                        <RadioButton text='Bad' groupName='rating'/>
+                        <RadioButton text='Special' groupName='rating'/>
+                        <RadioButton text='Metal Battle' groupName='rating'/>
                     </div>
                     <input className='submit' type='submit' value='Evaluate'/>
                 </div>
             </form>
         </div>
-    )
-        ;
+    );
 };

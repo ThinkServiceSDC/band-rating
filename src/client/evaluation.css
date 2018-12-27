@@ -15,8 +15,13 @@
     margin: 0 0 50px 0;
 }
 
+.voting-area {
+    display: flex;
+    padding-bottom: 50px;
+}
+
 .radio-button {
-    margin: 0 0 50px 0;
+    padding: 0 20px 0 0;
 }
 
 .radio-button-label {
