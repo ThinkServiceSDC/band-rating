@@ -1,23 +1,57 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './evaluation.css';
-import {RadioButton} from "./RadioButton";
 
-export const Evaluation = () => {
-    return (
-        <div className='evaluation-form'>
-            <form>
-                <div className='evaluation-container'>
-                    <input className='band-insert-field' type='text' name='bandName'/>
-                    <div className='voting-area'>
-                        <RadioButton text='Good' groupName='rating'/>
-                        <RadioButton text='Medium' groupName='rating'/>
-                        <RadioButton text='Bad' groupName='rating'/>
-                        <RadioButton text='Special' groupName='rating'/>
-                        <RadioButton text='Metal Battle' groupName='rating'/>
+export default class Evaluation extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {selectedVote: null};
+    }
+
+    render() {
+        return (
+            <div className='evaluation-form'>
+                <form onSubmit={this.evaluateBand}>
+                    <div className='evaluation-container'>
+                        <input className='band-insert-field' type='text' name='bandName'/>
+                        <div className='voting-area'>
+                            <div className='radio-button'>
+                                <input type='radio' id='Good' value='Good' name='rating' onChange={this.voteChanged}/>
+                                <label className='radio-button-label'>Good</label>
+                            </div>
+                            <div className='radio-button'>
+                                <input type='radio' id='Medium' value='Medium' name='rating'
+                                       onChange={this.voteChanged}/>
+                                <label className='radio-button-label'>Medium</label>
+                            </div>
+                            <div className='radio-button'>
+                                <input type='radio' id='Bad' value='Bad' name='rating' onChange={this.voteChanged}/>
+                                <label className='radio-button-label'>Bad</label>
+                            </div>
+                            <div className='radio-button'>
+                                <input type='radio' id='Special' value='Special' name='rating'
+                                       onChange={this.voteChanged}/>
+                                <label className='radio-button-label'>Special</label>
+                            </div>
+                            <div className='radio-button'>
+                                <input type='radio' id='MetalBattle' value='MetalBattle' name='rating'
+                                       onChange={this.voteChanged}/>
+                                <label className='radio-button-label'>Metal Battle</label>
+                            </div>
+                        </div>
+                        <input className='submit' type='submit' value='Evaluate'/>
                     </div>
-                    <input className='submit' type='submit' value='Evaluate'/>
-                </div>
-            </form>
-        </div>
-    );
-};
+                </form>
+            </div>
+        )
+    }
+
+    voteChanged = (event) => {
+        this.setState({selectedVote: event.target.value});
+    };
+
+    evaluateBand = async () => {
+        event.preventDefault();
+        console.log(this.state.selectedVote);
+    };
+}

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import {BrowserRouter, Route, Link} from 'react-router-dom'
-import {Evaluation} from "./Evaluation";
+import {BrowserRouter, Route} from 'react-router-dom'
+import Evaluation from "./Evaluation";
 
 class App extends Component {
     render() {

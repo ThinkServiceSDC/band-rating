@@ -4,7 +4,9 @@ exports[`Evaluation should render correctly 1`] = `
 <div
   className="evaluation-form"
 >
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <div
       className="evaluation-container"
     >
@@ -16,26 +18,86 @@ exports[`Evaluation should render correctly 1`] = `
       <div
         className="voting-area"
       >
-        <RadioButton
-          groupName="rating"
-          text="Good"
-        />
-        <RadioButton
-          groupName="rating"
-          text="Medium"
-        />
-        <RadioButton
-          groupName="rating"
-          text="Bad"
-        />
-        <RadioButton
-          groupName="rating"
-          text="Special"
-        />
-        <RadioButton
-          groupName="rating"
-          text="Metal Battle"
-        />
+        <div
+          className="radio-button"
+        >
+          <input
+            id="Good"
+            name="rating"
+            onChange={[Function]}
+            type="radio"
+            value="Good"
+          />
+          <label
+            className="radio-button-label"
+          >
+            Good
+          </label>
+        </div>
+        <div
+          className="radio-button"
+        >
+          <input
+            id="Medium"
+            name="rating"
+            onChange={[Function]}
+            type="radio"
+            value="Medium"
+          />
+          <label
+            className="radio-button-label"
+          >
+            Medium
+          </label>
+        </div>
+        <div
+          className="radio-button"
+        >
+          <input
+            id="Bad"
+            name="rating"
+            onChange={[Function]}
+            type="radio"
+            value="Bad"
+          />
+          <label
+            className="radio-button-label"
+          >
+            Bad
+          </label>
+        </div>
+        <div
+          className="radio-button"
+        >
+          <input
+            id="Special"
+            name="rating"
+            onChange={[Function]}
+            type="radio"
+            value="Special"
+          />
+          <label
+            className="radio-button-label"
+          >
+            Special
+          </label>
+        </div>
+        <div
+          className="radio-button"
+        >
+          <input
+            id="MetalBattle"
+            name="rating"
+            onChange={[Function]}
+            type="radio"
+            value="MetalBattle"
+          />
+          <label
+            className="radio-button-label"
+          >
+            Metal Battle
+          </label>
+        </div>
       </div>
       <input
         className="submit"
