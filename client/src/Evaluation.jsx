@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './evaluation.css';
+import * as backendCalls from '../../client/src/backendCalls';
 
 export default class Evaluation extends Component {
 
@@ -39,7 +40,7 @@ export default class Evaluation extends Component {
                                 <label className='radio-button-label'>Metal Battle</label>
                             </div>
                         </div>
-                        <input className='submit' type='submit' value='Evaluate'/>
+                        <input id='Evaluate' className='submit' type='submit' value='Evaluate'/>
                     </div>
                 </form>
             </div>
@@ -50,8 +51,9 @@ export default class Evaluation extends Component {
         this.setState({selectedVote: event.target.value});
     };
 
-    evaluateBand = async () => {
+    evaluateBand = async (event) => {
         event.preventDefault();
-        console.log(this.state.selectedVote);
+        console.log(event);
+        backendCalls.sendEvaluation('' ,this.state.selectedVote, '')
     };
 }

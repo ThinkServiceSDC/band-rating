@@ -101,6 +101,7 @@ exports[`Evaluation should render correctly 1`] = `
       </div>
       <input
         className="submit"
+        id="Evaluate"
         type="submit"
         value="Evaluate"
       />
