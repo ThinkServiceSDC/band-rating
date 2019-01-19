@@ -3,7 +3,7 @@ import './evaluation.css';
 import * as backendCalls from '../../client/src/backendCalls';
 
 export default class Evaluation extends Component {
-    state = {bandName: null, vote: null, comment: null};
+    state = {bandName: undefined, vote: null, comment: undefined};
 
     constructor(props) {
         super(props);

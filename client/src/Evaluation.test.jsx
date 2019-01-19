@@ -13,9 +13,9 @@ describe('Evaluation', () => {
 
     it('should set inital states to null', () => {
         const wrapper = shallow(<Evaluation/>);
-        expect(wrapper.state().bandName).toBeNull();
+        expect(wrapper.state().bandName).toBeUndefined();
         expect(wrapper.state().vote).toBeNull();
-        expect(wrapper.state().comment).toBeNull();
+        expect(wrapper.state().comment).toBeUndefined();
     });
 
     describe('input fields', () => {
