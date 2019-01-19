@@ -7,12 +7,23 @@ export default class Evaluation extends Component {
     constructor(props) {
         super(props);
         this.state = {selectedVote: null};
+        this.voteChanged = this.voteChanged.bind(this);
+        this.evaluateBand = this.evaluateBand.bind(this);
     }
+
+    voteChanged(event) {
+        this.setState({selectedVote: event.target.value});
+    };
+
+    async evaluateBand(event) {
+        event.preventDefault();
+        backendCalls.sendEvaluation('', this.state.selectedVote, '')
+    };
 
     render() {
         return (
             <div className='evaluation-form'>
-                <form onSubmit={this.evaluateBand}>
+                <form id='submitForm' onSubmit={this.evaluateBand}>
                     <div className='evaluation-container'>
                         <input className='band-insert-field' type='text' name='bandName'/>
                         <div className='voting-area'>
@@ -44,16 +55,6 @@ export default class Evaluation extends Component {
                     </div>
                 </form>
             </div>
-        )
+        );
     }
-
-    voteChanged = (event) => {
-        this.setState({selectedVote: event.target.value});
-    };
-
-    evaluateBand = async (event) => {
-        event.preventDefault();
-        console.log(event);
-        backendCalls.sendEvaluation('' ,this.state.selectedVote, '')
-    };
 }

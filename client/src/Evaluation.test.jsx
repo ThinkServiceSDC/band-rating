@@ -1,7 +1,10 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import {shallow} from 'enzyme';
-import Evaluation from "./Evaluation";
+import Evaluation from './Evaluation';
+import * as backendCall from './backendCalls';
+
+jest.mock('./backendCalls.js');
 
 describe('Evaluation', () => {
     it('should render correctly', () => {
@@ -14,10 +17,12 @@ describe('Evaluation', () => {
         expect(wrapper.state()).toEqual({selectedVote: 'Good'});
     });
 
-    it('should send data to server', () => {
+    it('should send data to server', (done) => {
         const wrapper = shallow(<Evaluation/>);
         wrapper.find('#Good').prop('onChange')({target: {value: 'Good'}});
-        wrapper.find('#Evaluate').prop('onClick')();
-        expect('')
+        wrapper.find('#submitForm').prop('onSubmit')({preventDefault: jest.fn()});
+
+        expect(backendCall.sendEvaluation).toBeCalledWith('', 'Good', '');
+        done();
     });
 });
