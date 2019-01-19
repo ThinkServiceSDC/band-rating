@@ -15,6 +15,7 @@ exports[`Evaluation should render correctly 1`] = `
         className="band-insert-field"
         id="bandName"
         name="bandName"
+        onChange={[Function]}
         type="text"
       />
       <div
@@ -101,6 +102,12 @@ exports[`Evaluation should render correctly 1`] = `
           </label>
         </div>
       </div>
+      <input
+        id="comment"
+        name="comment"
+        onChange={[Function]}
+        type="text"
+      />
       <input
         className="submit"
         id="Evaluate"
