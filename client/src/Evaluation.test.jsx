@@ -18,10 +18,24 @@ describe('Evaluation', () => {
         expect(wrapper.state().comment).toBeNull();
     });
 
-    it('should change state when selecting different option', () => {
-        const wrapper = shallow(<Evaluation/>);
-        wrapper.find('#Good').prop('onChange')({target: {value: 'Good'}});
-        expect(wrapper.state().vote).toEqual('Good');
+    describe('input fields', () => {
+        it('should change state when entering band name', () => {
+            const wrapper = shallow(<Evaluation/>);
+            wrapper.find('#bandName').prop('onChange')({target: {value: 'bandName'}});
+            expect(wrapper.state().bandName).toEqual('bandName');
+        });
+
+        it('should change state when selecting different option', () => {
+            const wrapper = shallow(<Evaluation/>);
+            wrapper.find('#Good').prop('onChange')({target: {value: 'Good'}});
+            expect(wrapper.state().vote).toEqual('Good');
+        });
+
+        it('should change state when entering a comment', () => {
+            const wrapper = shallow(<Evaluation/>);
+            wrapper.find('#comment').prop('onChange')({target: {value: 'comment'}});
+            expect(wrapper.state().comment).toEqual('comment');
+        });
     });
 
     it('should send data to server', (done) => {
