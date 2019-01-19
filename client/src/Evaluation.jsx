@@ -3,21 +3,21 @@ import './evaluation.css';
 import * as backendCalls from '../../client/src/backendCalls';
 
 export default class Evaluation extends Component {
+    state = {bandName: null, vote: null, comment: null};
 
     constructor(props) {
         super(props);
-        this.state = {selectedVote: null};
         this.voteChanged = this.voteChanged.bind(this);
         this.evaluateBand = this.evaluateBand.bind(this);
     }
 
     voteChanged(event) {
-        this.setState({selectedVote: event.target.value});
+        this.setState({vote: event.target.value});
     };
 
     async evaluateBand(event) {
         event.preventDefault();
-        backendCalls.sendEvaluation('', this.state.selectedVote, '')
+        backendCalls.sendEvaluation(this.state.bandName, this.state.vote, this.state.comment);
     };
 
     render() {
@@ -25,7 +25,7 @@ export default class Evaluation extends Component {
             <div className='evaluation-form'>
                 <form id='submitForm' onSubmit={this.evaluateBand}>
                     <div className='evaluation-container'>
-                        <input className='band-insert-field' type='text' name='bandName'/>
+                        <input id='bandName' className='band-insert-field' type='text' name='bandName'/>
                         <div className='voting-area'>
                             <div className='radio-button'>
                                 <input type='radio' id='Good' value='Good' name='rating' onChange={this.voteChanged}/>
