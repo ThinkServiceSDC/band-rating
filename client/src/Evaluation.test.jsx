@@ -17,7 +17,7 @@ describe('Evaluation', () => {
     it('should send data to server', () => {
         const wrapper = shallow(<Evaluation/>);
         wrapper.find('#Good').prop('onChange')({target: {value: 'Good'}});
-        wrapper.find('#Evaluate').simulate('click');
+        wrapper.find('#Evaluate').prop('onClick')();
         expect('')
     });
 });
