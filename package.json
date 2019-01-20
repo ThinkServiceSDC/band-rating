@@ -7,7 +7,7 @@
     "start": "concurrently \"yarn startServer\" \"yarn --cwd client start\"",
     "test": "concurrently \"yarn testServer\" \"yarn --cwd client test\"",
     "serve": "yarn build && node build/server.js",
-    "startServer": "nodemon --watch src/ --exec babel-node -- server/server.js",
+    "startServer": "nodemon --watch src/ --exec babel-node -- server/main/server.js",
     "testServer": "mocha --recursive --require @babel/register --require @babel/polyfill server/test"
   },
   "dependencies": {
