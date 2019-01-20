@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {consumer, producer} from '../main/kafka';
+import {consumer, producer} from '../server/kafka';
 
 describe('producer', () => {
     it('should create an object', () => {

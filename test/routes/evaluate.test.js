@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {evaluate} from '../../main/routes/evaluate';
+import {evaluate} from '../../server/routes/evaluate';
 
 let res;
 

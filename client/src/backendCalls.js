@@ -1,6 +1,9 @@
-export const sendEvaluation = async (bandName, evaluation, comment) => {
+export const sendEvaluation = async (bandName, vote, comment) => {
     return await fetch('/v1/api/evaluate', {
+        headers: {
+            'Content-Type': 'application/json',
+        },
         method: 'PUT',
-        body: {bandName, evaluation, comment}
+        body: JSON.stringify({bandName, vote, comment})
     });
 };

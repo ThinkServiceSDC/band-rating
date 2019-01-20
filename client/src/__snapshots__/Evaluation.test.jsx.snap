@@ -17,6 +17,7 @@ exports[`Evaluation should render correctly 1`] = `
         name="bandName"
         onChange={[Function]}
         type="text"
+        value=""
       />
       <div
         className="voting-area"
@@ -107,6 +108,7 @@ exports[`Evaluation should render correctly 1`] = `
         name="comment"
         onChange={[Function]}
         type="text"
+        value=""
       />
       <input
         className="submit"

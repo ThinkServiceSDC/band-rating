@@ -1,6 +1,6 @@
 import request from 'supertest';
 import httpStatus from 'http-status';
-import server from '../main/server'
+import server from '../server/server'
 
 after(() => {
     server.stop();
