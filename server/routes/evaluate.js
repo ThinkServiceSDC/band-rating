@@ -10,10 +10,13 @@ router.put(routePath + '/evaluate', (req, res) => {
 
 export const evaluate = (req, res) => {
     if (!req.body.bandName) {
-        res.status(400).send('Please provide a band name');
-    } else {
-        res.status(201).send(req.body);
+        return res.status(400).send('Please provide a band name');
     }
+
+    if (!req.body.vote) {
+        return res.status(400).send('Please provide a vote');
+    }
+    return res.status(201).send(req.body);
 };
 
 export default router;

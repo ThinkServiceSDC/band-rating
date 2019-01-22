@@ -19,6 +19,13 @@ beforeEach(() => {
 
 
 describe('evaluate', () => {
+    it('should succeed if a correct body is given', () => {
+        const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
+        evaluate(req, res);
+        expect(res.statusCalledWith).to.equal(201);
+        expect(res.sendCalledWith).to.equal(req.body);
+    });
+
     it('should error if no bandName is provided', () => {
         const req = {body: {bandName: '', vote: 'vote', comment: 'comment'}};
         evaluate(req, res);
@@ -26,10 +33,10 @@ describe('evaluate', () => {
         expect(res.sendCalledWith).to.equal('Please provide a band name');
     });
 
-    it('should succeed if a correct body is given', () => {
-        const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
+    it('should error if no vote is provided', () => {
+        const req = {body: {bandName: 'bandName', vote: '', comment: 'comment'}};
         evaluate(req, res);
-        expect(res.statusCalledWith).to.equal(201);
-        expect(res.sendCalledWith).to.equal(req.body);
+        expect(res.statusCalledWith).to.equal(400);
+        expect(res.sendCalledWith).to.equal('Please provide a vote');
     });
 });
