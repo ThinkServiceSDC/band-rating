@@ -1,14 +1,14 @@
 import {expect} from 'chai';
-import {consumer, producer} from '../server/kafka';
+import {createConsumer, createProducer} from '../server/kafka';
 
-describe('producer', () => {
+describe('createProducer', () => {
     it('should create an object', () => {
-        expect(producer()).to.be.a('object');
+        expect(createProducer()).to.be.a('object');
     });
 });
 
-describe('consumer', () => {
+describe('createConsumer', () => {
     it('should create an object', () => {
-        expect(consumer()).to.be.a('object');
+        expect(createConsumer()).to.be.a('object');
     });
 });

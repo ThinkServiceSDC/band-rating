@@ -1,6 +1,6 @@
 import Kafka from 'node-rdkafka';
 
-export const producer = () => {
+export const createProducer = () => {
     const producer = new Kafka.Producer({'metadata.broker.list': 'localhost:9092', 'dr_cb': true}, {});
     producer.on('error', (err) => {
         console.log('Error occurred ', err);
@@ -12,7 +12,7 @@ export const producer = () => {
     return producer;
 };
 
-export const consumer = (groupId) => {
+export const createConsumer = (groupId) => {
     return new Kafka.KafkaConsumer({
         'group.id': groupId,
         'metadata.broker.list': 'localhost:9092'
