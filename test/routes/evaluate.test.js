@@ -1,5 +1,7 @@
 import {expect} from 'chai';
+import * as sinon from 'sinon';
 import {evaluate} from '../../server/routes/evaluate';
+import * as kafka from '../../server/kafka';
 
 let res;
 
@@ -20,8 +22,10 @@ beforeEach(() => {
 
 describe('evaluate', () => {
     it('should succeed if a correct body is given', () => {
+        const stub = sinon.stub(kafka, 'createProducer')
         const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
         evaluate(req, res);
+        expect(kafka.createProducer.calledOnce).to.be.ok;
         expect(res.statusCalledWith).to.equal(201);
         expect(res.sendCalledWith).to.equal(req.body);
     });
