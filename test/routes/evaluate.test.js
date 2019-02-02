@@ -1,11 +1,17 @@
+import chai from 'chai';
 import {expect} from 'chai';
-import * as sinon from 'sinon';
-import {evaluate} from '../../server/routes/evaluate';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
 import * as kafka from '../../server/kafka';
+import {evaluate} from '../../server/routes/evaluate';
+
+chai.use(sinonChai);
 
 let res;
+let sandbox;
 
 beforeEach(() => {
+    sandbox = sinon.createSandbox();
     res = {
         sendCalledWith: null,
         statusCalledWith: null,
@@ -19,13 +25,17 @@ beforeEach(() => {
     };
 });
 
+afterEach(() => {
+    sandbox.restore();
+});
+
 
 describe('evaluate', () => {
     it('should succeed if a correct body is given', () => {
-        const stub = sinon.stub(kafka, 'createProducer')
+        const produceStub = {produce: sandbox.stub()};
+        sandbox.stub(kafka, 'createProducer').returns(produceStub);
         const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
         evaluate(req, res);
-        expect(kafka.createProducer.calledOnce).to.be.ok;
         expect(res.statusCalledWith).to.equal(201);
         expect(res.sendCalledWith).to.equal(req.body);
     });
