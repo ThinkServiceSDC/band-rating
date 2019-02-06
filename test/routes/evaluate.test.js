@@ -2,7 +2,6 @@ import chai from 'chai';
 import {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import * as kafka from '../../server/kafka';
 import {evaluate} from '../../server/routes/evaluate';
 
 chai.use(sinonChai);
@@ -32,8 +31,6 @@ afterEach(() => {
 
 describe('evaluate', () => {
     it('should succeed if a correct body is given', () => {
-        const produceStub = {produce: sandbox.stub()};
-        sandbox.stub(kafka, 'createProducer').returns(produceStub);
         const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
         evaluate(req, res);
         expect(res.statusCalledWith).to.equal(201);

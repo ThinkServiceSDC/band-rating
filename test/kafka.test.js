@@ -1,9 +1,9 @@
 import {expect} from 'chai';
-import {createConsumer, createProducer} from '../server/kafka';
+import Producer, {createConsumer} from '../server/kafka';
 
-describe('createProducer', () => {
-    it('should create an object', () => {
-        expect(createProducer()).to.be.a('object');
+describe('Producer', () => {
+    it('should be a singleton Producer', () => {
+        expect(Producer).to.equal(Producer);
     });
 });
 
