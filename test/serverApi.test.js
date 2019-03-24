@@ -8,7 +8,7 @@ let consumerStream;
 let kafkaClient;
 
 describe('server api', function () {
-    this.timeout(40000);
+    this.timeout(5000);
 
     before(function () {
         kafkaClient = Kafka.AdminClient.create({
@@ -26,16 +26,18 @@ describe('server api', function () {
     });
 
 
-    beforeEach(function () {
+    beforeEach(function (done) {
+        this.timeout(10000);
         consumerStream = new KafkaConsumer.createReadStream({
             'group.id': 'test',
             'metadata.broker.list': 'localhost:9092'
         }, {}, {topics: ['test']});
+        setTimeout(() => done(), 9000);
     });
 
     afterEach(function (done) {
         consumerStream.destroy();
-        kafkaClient.deleteTopic('test', 10000, () => done());
+        kafkaClient.deleteTopic('test', () => done());
     });
 
     after(function () {
@@ -43,6 +45,8 @@ describe('server api', function () {
     });
 
     it('should respond with 201 and created object in body', function (done) {
+        this.timeout(40000);
+
         const requestBody = {bandName: 'bandName', vote: 'vote', comment: 'comment'};
         consumerStream.on('data', (data) => {
             expect(JSON.parse(data.value.toString())).to.eql(requestBody);
