@@ -3,33 +3,35 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import {Evaluator} from '../server/Evaluator';
+import Kafka from "node-rdkafka";
 
 chai.use(sinonChai);
 
-let res;
-let sandbox;
-
-beforeEach(() => {
-    sandbox = sinon.createSandbox();
-    res = {
-        sendCalledWith: null,
-        statusCalledWith: null,
-        send(arg) {
-            this.sendCalledWith = arg;
-        },
-        status(status) {
-            this.statusCalledWith = status;
-            return res;
-        }
-    };
-});
-
-afterEach(() => {
-    sandbox.restore();
-});
-
-
 describe('Evaluator', () => {
+    let res;
+    let sandbox;
+
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(Kafka, 'Producer').returns({on: f => f, connect: f => f});
+
+        res = {
+            sendCalledWith: null,
+            statusCalledWith: null,
+            send(arg) {
+                this.sendCalledWith = arg;
+            },
+            status(status) {
+                this.statusCalledWith = status;
+                return res;
+            }
+        };
+    });
+
+    afterEach(() => {
+        sandbox.restore();
+    });
+
     it('should respond with 201 and body if a correct body is given', () => {
         const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
         new Evaluator().evaluate(req, res);
