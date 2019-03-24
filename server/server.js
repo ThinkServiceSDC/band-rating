@@ -2,10 +2,12 @@ import createError from 'http-errors';
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-
-import indexRouter from './routes/evaluate';
+import {Evaluator} from "./Evaluator";
 
 let app = express();
+
+const routePath = '/v1/api';
+const evaluator = new Evaluator();
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -13,7 +15,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static('client/build'));
 
-app.use('/', indexRouter);
+app.put(routePath + '/evaluate', (req, res) => {
+    evaluator.evaluate(req, res);
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

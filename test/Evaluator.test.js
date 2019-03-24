@@ -2,7 +2,7 @@ import chai from 'chai';
 import {expect} from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import {evaluate} from '../../server/routes/evaluate';
+import {Evaluator} from '../server/Evaluator';
 
 chai.use(sinonChai);
 
@@ -29,25 +29,25 @@ afterEach(() => {
 });
 
 
-describe('evaluate', () => {
-    it('should succeed if a correct body is given', () => {
+describe('Evaluator', () => {
+    it('should respond with 201 and body if a correct body is given', () => {
         const req = {body: {bandName: 'bandName', vote: 'vote', comment: 'comment'}};
-        evaluate(req, res);
+        new Evaluator().evaluate(req, res);
         expect(res.statusCalledWith).to.equal(201);
         expect(res.sendCalledWith).to.equal(req.body);
     });
 
     it('should error if no bandName is provided', () => {
         const req = {body: {bandName: '', vote: 'vote', comment: 'comment'}};
-        evaluate(req, res);
+        new Evaluator().evaluate(req, res);
         expect(res.statusCalledWith).to.equal(400);
-        expect(res.sendCalledWith).to.equal('Please provide a band name');
+        expect(res.sendCalledWith).to.equal('Please provide all necessary data');
     });
 
     it('should error if no vote is provided', () => {
         const req = {body: {bandName: 'bandName', vote: '', comment: 'comment'}};
-        evaluate(req, res);
+        new Evaluator().evaluate(req, res);
         expect(res.statusCalledWith).to.equal(400);
-        expect(res.sendCalledWith).to.equal('Please provide a vote');
+        expect(res.sendCalledWith).to.equal('Please provide all necessary data');
     });
 });
