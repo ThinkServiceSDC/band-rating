@@ -4,6 +4,7 @@ export class Evaluator {
 
     constructor() {
         this.evaluate = this.evaluate.bind(this);
+        this.produceKafkaMessage = this.produceKafkaMessage.bind(this);
         this.producerReady = false;
 
         this.producer = new Kafka.Producer({'metadata.broker.list': 'localhost:9092', 'dr_cb': true}, {});
