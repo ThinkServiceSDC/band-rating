@@ -28,6 +28,7 @@ exports[`Evaluation should render correctly 1`] = `
         >
           <label
             className="radio-button-label"
+            htmlFor="Good"
           >
             <input
               id="Good"
@@ -44,6 +45,7 @@ exports[`Evaluation should render correctly 1`] = `
         >
           <label
             className="radio-button-label"
+            htmlFor="Medium"
           >
             <input
               id="Medium"
@@ -60,6 +62,7 @@ exports[`Evaluation should render correctly 1`] = `
         >
           <label
             className="radio-button-label"
+            htmlFor="Bad"
           >
             <input
               id="Bad"
@@ -76,6 +79,7 @@ exports[`Evaluation should render correctly 1`] = `
         >
           <label
             className="radio-button-label"
+            htmlFor="Special"
           >
             <input
               id="Special"
@@ -92,6 +96,7 @@ exports[`Evaluation should render correctly 1`] = `
         >
           <label
             className="radio-button-label"
+            htmlFor="MetalBattle"
           >
             <input
               id="MetalBattle"
