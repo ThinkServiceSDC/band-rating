@@ -44,11 +44,8 @@ describe('server api', function () {
     });
 
     it('should respond with 201 and created object in body', function (done) {
-        this.timeout(40000);
-
         const requestBody = {bandName: 'bandName', vote: 'vote', comment: 'comment'};
         consumerStream.on('data', (data) => {
-            console.log(data.value.toString());
             expect(JSON.parse(data.value.toString())).to.eql(requestBody);
             done();
         });
