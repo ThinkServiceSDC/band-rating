@@ -12,10 +12,11 @@ exports[`Evaluation should render correctly 1`] = `
       className="evaluation-container"
     >
       <input
-        className="band-insert-field"
+        className="insert-field"
         id="bandName"
         name="bandName"
         onChange={[Function]}
+        placeholder="Band"
         type="text"
         value=""
       />
@@ -25,88 +26,90 @@ exports[`Evaluation should render correctly 1`] = `
         <div
           className="radio-button"
         >
-          <input
-            id="Good"
-            name="rating"
-            onChange={[Function]}
-            type="radio"
-            value="Good"
-          />
           <label
             className="radio-button-label"
           >
+            <input
+              id="Good"
+              name="rating"
+              onChange={[Function]}
+              type="radio"
+              value="Good"
+            />
             Good
           </label>
         </div>
         <div
           className="radio-button"
         >
-          <input
-            id="Medium"
-            name="rating"
-            onChange={[Function]}
-            type="radio"
-            value="Medium"
-          />
           <label
             className="radio-button-label"
           >
+            <input
+              id="Medium"
+              name="rating"
+              onChange={[Function]}
+              type="radio"
+              value="Medium"
+            />
             Medium
           </label>
         </div>
         <div
           className="radio-button"
         >
-          <input
-            id="Bad"
-            name="rating"
-            onChange={[Function]}
-            type="radio"
-            value="Bad"
-          />
           <label
             className="radio-button-label"
           >
+            <input
+              id="Bad"
+              name="rating"
+              onChange={[Function]}
+              type="radio"
+              value="Bad"
+            />
             Bad
           </label>
         </div>
         <div
           className="radio-button"
         >
-          <input
-            id="Special"
-            name="rating"
-            onChange={[Function]}
-            type="radio"
-            value="Special"
-          />
           <label
             className="radio-button-label"
           >
+            <input
+              id="Special"
+              name="rating"
+              onChange={[Function]}
+              type="radio"
+              value="Special"
+            />
             Special
           </label>
         </div>
         <div
           className="radio-button"
         >
-          <input
-            id="MetalBattle"
-            name="rating"
-            onChange={[Function]}
-            type="radio"
-            value="MetalBattle"
-          />
           <label
             className="radio-button-label"
           >
+            <input
+              id="MetalBattle"
+              name="rating"
+              onChange={[Function]}
+              type="radio"
+              value="MetalBattle"
+            />
             Metal Battle
           </label>
         </div>
       </div>
       <input
+        className="insert-field"
         id="comment"
         name="comment"
         onChange={[Function]}
+        placeholder="Comment"
         type="text"
         value=""
       />

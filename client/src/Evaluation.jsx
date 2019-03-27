@@ -25,35 +25,48 @@ export default class Evaluation extends Component {
             <div className='evaluation-form'>
                 <form id='submitForm' onSubmit={this.evaluateBand}>
                     <div className='evaluation-container'>
-                        <input id='bandName' className='band-insert-field' type='text'
-                               name='bandName' value={this.state.bandName}
+                        <input id='bandName' className='insert-field' type='text'
+                               name='bandName' value={this.state.bandName} placeholder='Band'
                                onChange={(event) => this.setState({bandName: event.target.value})}/>
                         <div className='voting-area'>
                             <div className='radio-button'>
-                                <input type='radio' id='Good' value='Good' name='rating' onChange={this.updateVote}/>
-                                <label className='radio-button-label'>Good</label>
+                                <label className='radio-button-label'>
+                                    <input type='radio' id='Good' value='Good' name='rating'
+                                           onChange={this.updateVote}/>
+                                    Good
+                                </label>
                             </div>
                             <div className='radio-button'>
-                                <input type='radio' id='Medium' value='Medium' name='rating'
-                                       onChange={this.updateVote}/>
-                                <label className='radio-button-label'>Medium</label>
+                                <label className='radio-button-label'>
+                                    <input type='radio' id='Medium' value='Medium' name='rating'
+                                           onChange={this.updateVote}/>
+                                    Medium
+                                </label>
                             </div>
                             <div className='radio-button'>
-                                <input type='radio' id='Bad' value='Bad' name='rating' onChange={this.updateVote}/>
-                                <label className='radio-button-label'>Bad</label>
+                                <label className='radio-button-label'>
+                                    <input type='radio' id='Bad' value='Bad' name='rating' onChange={this.updateVote}/>
+                                    Bad
+                                </label>
                             </div>
                             <div className='radio-button'>
-                                <input type='radio' id='Special' value='Special' name='rating'
-                                       onChange={this.updateVote}/>
-                                <label className='radio-button-label'>Special</label>
+
+                                <label className='radio-button-label'>
+                                    <input type='radio' id='Special' value='Special' name='rating'
+                                           onChange={this.updateVote}/>
+                                    Special
+                                </label>
                             </div>
                             <div className='radio-button'>
-                                <input type='radio' id='MetalBattle' value='MetalBattle' name='rating'
-                                       onChange={this.updateVote}/>
-                                <label className='radio-button-label'>Metal Battle</label>
+                                <label className='radio-button-label'>
+                                    <input type='radio' id='MetalBattle' value='MetalBattle' name='rating'
+                                           onChange={this.updateVote}/>
+                                    Metal Battle
+                                </label>
                             </div>
                         </div>
-                        <input id='comment' type='text' name='comment' value={this.state.comment}
+                        <input id='comment' className='insert-field' type='text'
+                               name='comment' value={this.state.comment} placeholder='Comment'
                                onChange={(event) => this.setState({comment: event.target.value})}/>
                         <input id='Evaluate' className='submit' type='submit' value='Evaluate'/>
                     </div>
