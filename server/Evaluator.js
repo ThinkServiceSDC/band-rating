@@ -35,6 +35,6 @@ export class Evaluator {
     };
 
     produceKafkaMessage(message) {
-        this.producer.produce('test', -1, Buffer.from(JSON.stringify(message)), 'key', null, null);
+        this.producer.produce(process.env.TOPIC, -1, Buffer.from(JSON.stringify(message)), 'key', null, null);
     }
 }

@@ -6,10 +6,10 @@
     "build": "babel src/server/ -d build",
     "start": "concurrently \"yarn startServer\" \"yarn --cwd client start\"",
     "test": "concurrently \"yarn testServer\" \"yarn testClient\"",
-    "serve": "yarn build && node build/server.js",
-    "startServer": "nodemon --watch server --exec babel-node -- server/server.js",
+    "serve": "set TOPIC=evaluation && yarn build && node build/server.js",
+    "startServer": "set TOPIC=evaluation && nodemon --watch server --exec babel-node -- server/server.js",
     "testClient": "yarn --cwd client test",
-    "testServer": "mocha --exit --recursive --require @babel/register --require @babel/polyfill test"
+    "testServer": "set TOPIC=test && mocha --exit --recursive --require @babel/register --require @babel/polyfill test"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
