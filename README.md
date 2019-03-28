@@ -1,6 +1,6 @@
-# Band Evaluation tool [![Build Status](https://travis-ci.com/Kruspe/band-evaluation.svg?branch=master)](https://travis-ci.com/Kruspe/band-evaluation)
+# Band Rating MS [![Build Status](https://travis-ci.com/Kruspe/band-evaluation.svg?branch=master)](https://travis-ci.com/Kruspe/band-evaluation)
 
-Ever wanted a better overview of the bands coming to the upcoming festival. Get a good overview and evaluate them.
+Want to be able to rate bands? This project will help you.
 
 ### node-rdkafka on windows
 If node-gyp is not running on your windows machine read [https://github.com/Blizzard/node-rdkafka]

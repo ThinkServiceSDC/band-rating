@@ -1,6 +1,6 @@
 {
-  "name": "band-evaluation",
-  "version": "0.1.0",
+  "name": "band-rating",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
     "build": "babel src/server/ -d build",
