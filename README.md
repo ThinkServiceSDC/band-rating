@@ -1,4 +1,4 @@
-# Band Rating MS [![Build Status](https://travis-ci.com/Kruspe/band-evaluation.svg?branch=master)](https://travis-ci.com/Kruspe/band-evaluation)
+# Band Rating MS [![Build Status](https://travis-ci.com/Kruspe/band-rating.svg?branch=master)](https://travis-ci.com/Kruspe/band-rating)
 
 Want to be able to rate bands? This project will help you.
 
